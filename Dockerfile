@@ -18,9 +18,12 @@ RUN apt-get update && \
         libreadline6-dev \
         libcurl4-gnutls-dev \
         zlib1g-dev \
-        vim
+        vim &&
+        echo "set encoding=utf-8" >> /root/.vimrc &&
+        echo "set fileencoding=utf-8" >> /root/.vimrc
 
-RUN curl -kL https://github.com/OpenKore/openkore/archive/twRO_New.tar.gz | tar -xvz \
+# RUN curl -kL https://github.com/OpenKore/openkore/archive/twRO_New.tar.gz | tar -xvz \
+RUN curl -kL https://github.com/John-Lin/openkore/archive/twRO_New-patch06222016.tar.gz | tar -xvz \
     && mv openkore-twRO_New openkore \
     && cd openkore \
     && make

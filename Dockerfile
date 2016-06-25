@@ -22,8 +22,8 @@ RUN apt-get update && \
 
 RUN curl -kL https://github.com/OpenKore/openkore/archive/twRO_New.tar.gz | tar -xvz \
     && mv openkore-twRO_New openkore \
-    && cd openkore 
-
+    && cd openkore \
+    && make
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
